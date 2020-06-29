@@ -1,0 +1,8 @@
+requests
+ipywidgets
+ipykernel
+ipython
+pandas
+numpy
+graphistry
+nest_asyncio

@@ -1,0 +1,13 @@
+# Run Osquery on Linux to get needed data for the graphs
+
+## Get requirements
+```
+sudo apt-get install -y python3 python3-pip ipython3
+python3 -m pip install --user --upgrade pip
+python3 -m pip install --user --upgrade -r Requirements.txt
+```
+
+## Run the script
+```
+sudo -E ipython3 Generate_Osquery_Data-Linux.py
+```
