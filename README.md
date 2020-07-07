@@ -20,6 +20,8 @@ This repository is divided as follows:
 This repository is based on blog ...   
 The graphs are based on Osquery data for Windows and Linux.
 
+To set the secrets, copy `.env_template` and rename to `.env` and set your secrets there.
+
 ------------------------
 
 From my prior work on `OSQuery-Tables` this repository handles following points:
