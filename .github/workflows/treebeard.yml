@@ -1,4 +1,4 @@
-name: Jupyter Notebooks CI
+name: TreeBeard CI
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -20,8 +20,11 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - name: Checkout Code
       uses: actions/checkout@v2
-    
-    # Check if Jupyter Notebook is clean
-    - name: Ensure Clean Jupyter Notebooks
-      uses: ResearchSoftwareActions/EnsureCleanNotebooksAction@1.1
 
+    # Get python
+    - name: Get Python
+      uses: actions/setup-python@v2
+      
+    # Run TreeBeard
+    - name: Run treebeard
+      uses: treebeardtech/treebeard@master
