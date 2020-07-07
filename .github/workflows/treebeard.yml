@@ -30,3 +30,4 @@ jobs:
       uses: treebeardtech/treebeard@master
       env: 
         API1_KEY: ${{ secrets.API1_KEY }}
+        api1_key: ${{ secrets.API1_KEY }}
