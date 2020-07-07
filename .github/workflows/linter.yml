@@ -3,7 +3,7 @@
 ## Linter GitHub Actions ##
 ###########################
 ###########################
-name: Super-Linter CI
+name: Super-Linter
 
 #
 # Documentation:
