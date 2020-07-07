@@ -1,5 +1,5 @@
 ignore:
   #ignore this notebook as it needs secrets for graphistry
-  - Create_Graph_Osquery_Graphistry.ipynb
+  #- Create_Graph_Osquery_Graphistry.ipynb
   #ignore this notebook as it has commands that need to be run on windows
   - Generate_Osquery_Data.ipynb
