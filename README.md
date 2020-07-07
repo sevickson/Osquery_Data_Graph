@@ -13,11 +13,11 @@ This repository is divided as follows:
 - [Generate Osquery Data](Generate_Osquery_Data.ipynb)
 - [Create Graph Osquery Graphistry](Create_Graph_Osquery_Graphistry.ipynb)
 - [REQ](REQ)
-    - Requirements folder
+  - Requirements folder
 - [Linux Get Data](Linux_Get_Data)
-    - Jupyter Notebook and requirements to get Osquery on a Linux system
+  - Jupyter Notebook and requirements to get Osquery on a Linux system
 
-This repository is based on blog ...   
+This repository is based on blog ...
 The graphs are based on Osquery data for Windows and Linux.
 
 To set the secrets, copy `.env_template` and rename to `.env` and set your secrets there.
