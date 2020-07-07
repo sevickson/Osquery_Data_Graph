@@ -25,7 +25,3 @@ jobs:
     - name: Ensure Clean Jupyter Notebooks
       uses: ResearchSoftwareActions/EnsureCleanNotebooksAction@1.1
 
-    # Check validity of python code based on flake8
-    - name: Flake8 Jupyter Notebook code block check
-      uses: mhitza/flake8-jupyter-notebook@v1
-
