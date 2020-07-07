@@ -6,3 +6,4 @@ pandas
 numpy
 graphistry
 nest_asyncio
+python-dotenv

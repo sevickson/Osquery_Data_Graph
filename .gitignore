@@ -1,0 +1,10 @@
+# gitignore for Jupyter Notebooks
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# gitignore for venv
+.myvenv
+*/.myvenv/*
+
+# gitignore Graphistry credentials
+.env
