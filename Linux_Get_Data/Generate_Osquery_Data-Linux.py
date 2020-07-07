@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # coding: utf-8
 
-from IPython import get_ipython 
+from IPython import get_ipython # pylint: disable=import-error
 # Standard modules to use and manipulate dataframes
-import pandas as pd, numpy as np, pathlib,shutil
+import pandas as pd, numpy as np, pathlib,shutil # pylint: disable=import-error
 
 #Variables
 hname = "osquery.io"
