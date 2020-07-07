@@ -25,3 +25,7 @@ jobs:
     - name: Ensure Clean Jupyter Notebooks
       uses: ResearchSoftwareActions/EnsureCleanNotebooksAction@1.1
 
+    - name: Run treebeard
+      uses: actions/setup-python@v2
+      uses: treebeardtech/treebeard@master
+
