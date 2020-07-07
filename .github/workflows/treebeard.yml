@@ -33,4 +33,5 @@ jobs:
       env: 
         API1_KEY: "${{ secrets.API1_KEY }}"
         API3_USERNAME: "${{ secrets.API3_USERNAME }}"
+        GRAPHISTRY_API_KEY: "${{ secrets.API1_KEY }}"
         #api1_key: ${{ secrets.API1_KEY }}
