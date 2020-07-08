@@ -24,8 +24,8 @@ jobs:
         #Python >= 3.6 required
         python-version: [3.6, 3.7, 3.8]
 
-    #runs-on: ubuntu-latest
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
+    #runs-on: ${{ matrix.os }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
