@@ -34,7 +34,11 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
     
-    - run: pip install -r requirements.txt # Manually install python deps as running dockerless
+    - name: Install dependencies
+    - run: |
+        pip install --upgrade pip
+        pip install --upgrade cython
+        pip install -r requirements.txt # Manually install python deps as running dockerless
       working-directory: "./"
 
     # Run TreeBeard
