@@ -25,15 +25,16 @@ jobs:
     - name: Get Python
       uses: actions/setup-python@v2
       
-    - name: bash #shell
-      env:
-        SUPER_SECRET: ${{ secrets.API3_USERNAME }}
-        SUPER_SECRET1: ${{ secrets.API3_PWD }}
-        SUPER_SECRET2: ${{ secrets.API1_KEY }}
-      run: |
-        echo ${#SUPER_SECRET}
-        echo ${#SUPER_SECRET1}
-        echo ${#SUPER_SECRET2}
+    # Test to check if secrets are correctly imported from ENV  
+    #- name: bash #shell
+    #  env:
+    #    SUPER_SECRET: ${{ secrets.API3_USERNAME }}
+    #    SUPER_SECRET1: ${{ secrets.API3_PWD }}
+    #    SUPER_SECRET2: ${{ secrets.API1_KEY }}
+    #  run: |
+    #    echo ${#SUPER_SECRET}
+    #    echo ${#SUPER_SECRET1}
+    #    echo ${#SUPER_SECRET2}
 
     # Run TreeBeard
     - name: Run TreeBeard
@@ -46,3 +47,7 @@ jobs:
         API3_PWD: ${{ secrets.API3_PWD }}
         #GRAPHISTRY_API_KEY: ${{ secrets.API1_KEY }}
         #api1_key: ${{ secrets.API1_KEY }}
+      run: |
+        echo ${#API1_KEY}
+        echo ${#API3_USERNAME}
+        echo ${#API3_PWD}
