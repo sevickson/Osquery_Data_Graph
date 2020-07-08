@@ -25,11 +25,15 @@ jobs:
     - name: Get Python
       uses: actions/setup-python@v2
       
-    - shell: bash
+    - name: bash #shell
       env:
-        SUPER_SECRET: ${{ secrets.API3_USERNAME1 }}
+        SUPER_SECRET: ${{ secrets.API3_USERNAME }}
+        SUPER_SECRET1: ${{ secrets.API3_PWD }}
+        SUPER_SECRET2: ${{ secrets.API3_USERNAME1 }}
       run: |
-        echo "$SUPER_SECRET"
+        echo ${#SUPER_SECRET}
+        echo ${#SUPER_SECRET1}
+        echo ${#SUPER_SECRET2}
 
     # Run TreeBeard
     #- name: Run TreeBeard
