@@ -35,7 +35,7 @@ jobs:
         python-version: ${{ matrix.python-version }}
     
     - name: Install dependencies
-    - run: |
+      run: |
         pip install --upgrade pip
         pip install --upgrade cython
         pip install -r requirements.txt # Manually install python deps as running dockerless
