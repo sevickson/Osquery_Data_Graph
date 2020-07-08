@@ -15,7 +15,7 @@ jobs:
     # The type of runner that the job will run on
     strategy:
       matrix:
-        os: ['ubuntu-16.04', 'ubuntu-18.04', 'ubuntu-20.04', 'windows-2016']
+        os: ['ubuntu-16.04', 'ubuntu-18.04', 'ubuntu-20.04'] #, 'windows-2016']
         #Python >= 3.6 required
         python-version: [3.6, 3.7, 3.8]
 
@@ -34,10 +34,10 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
     
+    # Cython installation needed for Windows CI
     - name: Install dependencies
       run: |
-        pip install --upgrade pip
-        pip install --upgrade cython
+        python -m pip install --upgrade pip cython
         pip install -r requirements.txt # Manually install python deps as running dockerless
       working-directory: "./"
 
