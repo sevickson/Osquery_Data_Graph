@@ -7,8 +7,8 @@ name: Super-Linter
 # Start the job on all push #
 #############################
 on:
-  #push:
-  #  branches: [ master ]
+  push:
+    branches: [ master ]
   pull_request:
     branches: [ master ]
 
@@ -31,5 +31,5 @@ jobs:
         uses: docker://github/super-linter:v3
         env:
           #only on new files to save on time
-          #VALIDATE_ALL_CODEBASE: true
+          VALIDATE_ALL_CODEBASE: true
           DEFAULT_BRANCH: master
