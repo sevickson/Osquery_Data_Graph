@@ -36,12 +36,12 @@ jobs:
     
     # Cython installation needed for Windows CI
     - name: Install dependencies
+      working-directory: "./Linux_Get_Data"
       run: |
         python -m pip install --upgrade pip cython
         pip install -r requirements.txt
-      working-directory: "./Linux_Get_Data"
 
     # Run TreeBeard
     - name: Run Python Script
-      run: python Generate_Osquery_Data-Linux.py
       working-directory: "./Linux_Get_Data"
+      run: python Generate_Osquery_Data-Linux.py
