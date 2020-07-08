@@ -1,36 +1,36 @@
-#name: TreeBeard
-#
-## Controls when the action will run. Triggers the workflow on push or pull request
-## events but only for the master branch
-#on:
-#  push:
-#    branches: [ master ]
-#  pull_request:
-#    branches: [ master ]
-#
-## A workflow run is made up of one or more jobs that can run sequentially or in parallel
-#jobs:
-#  # This workflow contains a single job called "build"
-#  build:
-#    # The type of runner that the job will run on
-#    runs-on: ubuntu-latest
-#
-#    # Steps represent a sequence of tasks that will be executed as part of the job
-#    steps:
-#    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-#    - name: Checkout Code
-#      uses: actions/checkout@v2
-#
-#    # Get python
-#    - name: Get Python
-#      uses: actions/setup-python@v2
-#
-#    # Run TreeBeard
-#    - name: Run TreeBeard
-#      uses: treebeardtech/treebeard@master
-#      #with:
-#      #  debug: true
-#      env: 
-#        TB_API1_KEY: "${{ secrets.API1_KEY }}"
-#        TB_API3_USERNAME: "${{ secrets.API3_USERNAME }}"
-#        TB_API3_PWD: "${{ secrets.API3_PWD }}"
+name: TreeBeard
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    # Get python
+    - name: Get Python
+      uses: actions/setup-python@v2
+
+    # Run TreeBeard
+    - name: Run TreeBeard
+      uses: treebeardtech/treebeard@master
+      #with:
+      #  debug: true
+      env: 
+        TB_API1_KEY: "${{ secrets.API1_KEY }}"
+        TB_API3_USERNAME: "${{ secrets.API3_USERNAME }}"
+        TB_API3_PWD: "${{ secrets.API3_PWD }}"

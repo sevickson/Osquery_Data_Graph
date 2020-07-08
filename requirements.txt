@@ -7,3 +7,5 @@ numpy
 graphistry
 nest_asyncio
 python-dotenv
+#added below for TreeBeard CI Windows
+cython
