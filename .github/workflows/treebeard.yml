@@ -29,19 +29,20 @@ jobs:
       env:
         SUPER_SECRET: ${{ secrets.API3_USERNAME }}
         SUPER_SECRET1: ${{ secrets.API3_PWD }}
-        SUPER_SECRET2: ${{ secrets.API3_USERNAME1 }}
+        SUPER_SECRET2: ${{ secrets.API1_KEY }}
       run: |
         echo ${#SUPER_SECRET}
         echo ${#SUPER_SECRET1}
         echo ${#SUPER_SECRET2}
 
     # Run TreeBeard
-    #- name: Run TreeBeard
-    #  uses: treebeardtech/treebeard@master
-    #  with:
-    #    debug: true
-    #  env: 
-    #    API1_KEY: ${{ secrets.API1_KEY }}
-    #    API3_USERNAME: ${{ secrets.API3_USERNAME }}
-    #    #GRAPHISTRY_API_KEY: ${{ secrets.API1_KEY }}
-    #    #api1_key: ${{ secrets.API1_KEY }}
+    - name: Run TreeBeard
+      uses: treebeardtech/treebeard@master
+      with:
+        debug: true
+      env: 
+        API1_KEY: ${{ secrets.API1_KEY }}
+        API3_USERNAME: ${{ secrets.API3_USERNAME }}
+        API3_PWD: ${{ secrets.API3_PWD }}
+        #GRAPHISTRY_API_KEY: ${{ secrets.API1_KEY }}
+        #api1_key: ${{ secrets.API1_KEY }}
