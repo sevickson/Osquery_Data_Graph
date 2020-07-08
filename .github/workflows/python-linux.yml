@@ -42,8 +42,6 @@ jobs:
     - name: Install dependencies
       #working-directory: ./Linux_Get_Data
       run: |
-        pwd
-        ls
         python -m pip install --upgrade pip cython
         pip install -r requirements.txt
 
