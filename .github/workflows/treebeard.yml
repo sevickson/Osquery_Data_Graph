@@ -42,8 +42,8 @@ jobs:
       with:
         debug: true
       env: 
-        API1_KEY: ${{ secrets.API1_KEY }}
-        API3_USERNAME: ${{ secrets.API3_USERNAME }}
-        API3_PWD: ${{ secrets.API3_PWD }}
+        API1_KEY: "${{ secrets.API1_KEY }}"
+        API3_USERNAME: "${{ secrets.API3_USERNAME }}"
+        API3_PWD: "${{ secrets.API3_PWD }}"
         #GRAPHISTRY_API_KEY: ${{ secrets.API1_KEY }}
         #api1_key: ${{ secrets.API1_KEY }}
