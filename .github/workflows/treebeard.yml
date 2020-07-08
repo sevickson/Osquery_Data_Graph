@@ -47,7 +47,3 @@ jobs:
         API3_PWD: ${{ secrets.API3_PWD }}
         #GRAPHISTRY_API_KEY: ${{ secrets.API1_KEY }}
         #api1_key: ${{ secrets.API1_KEY }}
-      run: |
-        echo ${#API1_KEY}
-        echo ${#API3_USERNAME}
-        echo ${#API3_PWD}
