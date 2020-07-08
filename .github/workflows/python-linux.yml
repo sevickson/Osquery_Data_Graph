@@ -45,7 +45,7 @@ jobs:
       run: |
         sudo apt install ipython3
         sudo python3 -m pip install --upgrade pip
-        sudo pip install -r requirements.txt
+        sudo -H pip install -r requirements.txt
 
     # Run TreeBeard
     - name: Run Python Script
