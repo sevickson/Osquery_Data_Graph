@@ -27,7 +27,7 @@ jobs:
       
     - shell: bash
       env:
-        SUPER_SECRET: ${{ secrets.API3_USERNAME }}
+        SUPER_SECRET: ${{ secrets.API3_USERNAME1 }}
       run: |
         echo "$SUPER_SECRET"
 
