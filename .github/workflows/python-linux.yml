@@ -43,12 +43,12 @@ jobs:
     - name: Install dependencies
       #working-directory: ./Linux_Get_Data
       run: |
-        sudo apt install ipython
-        sudo python -m pip install --upgrade pip
+        sudo apt install ipython3
+        sudo python3 -m pip install --upgrade pip
         sudo pip install -r requirements.txt
 
     # Run TreeBeard
     - name: Run Python Script
       #working-directory: "./Linux_Get_Data"
       run: |
-        sudo ipython Generate_Osquery_Data-Linux.py
+        sudo ipython3 Generate_Osquery_Data-Linux.py
