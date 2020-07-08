@@ -51,4 +51,4 @@ jobs:
     - name: Run Python Script
       #working-directory: "./Linux_Get_Data"
       run: |
-        sudo ipython3 Generate_Osquery_Data-Linux.py
+        sudo -E ipython3 Generate_Osquery_Data-Linux.py
