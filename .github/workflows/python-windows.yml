@@ -47,4 +47,4 @@ jobs:
 
     - name: Run Python Script
       run: |
-        ipython Generate_Osquery_Data-Linux.py
+        ipython Generate_Osquery_Data-Windows.py
