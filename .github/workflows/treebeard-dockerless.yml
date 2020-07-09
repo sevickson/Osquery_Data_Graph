@@ -1,10 +1,10 @@
-name: TreeBeard Dockerless
+name: TreeBeard
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
-  push:
-    branches: [ master ]
+  #push:
+  #  branches: [ master ]
   pull_request:
     branches: [ master ]
 
@@ -15,7 +15,7 @@ jobs:
     # The type of runner that the job will run on
     strategy:
       matrix:
-        os: ['ubuntu-16.04', 'ubuntu-18.04', 'ubuntu-20.04', 'windows-2016']
+        os: ['ubuntu-18.04', 'ubuntu-20.04', 'windows-2016']
         #Python >= 3.6 required
         python-version: [3.6, 3.7, 3.8]
 
