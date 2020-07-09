@@ -22,7 +22,8 @@ jobs:
       matrix:
         #os: ['ubuntu-16.04', 'ubuntu-18.04', 'ubuntu-20.04'] #, 'windows-2016']
         #Python >= 3.6 required
-        python-version: [3.6, 3.7, 3.8]
+        python-version: [3.6]
+        #, 3.7, 3.8]
 
     runs-on: windows-2016
     #runs-on: ${{ matrix.os }}
@@ -41,9 +42,9 @@ jobs:
     
     - name: Install dependencies
       run: |
-        python3 -m pip install --upgrade pip
+        python -m pip install --upgrade pip
         pip install -r requirements.txt
 
     - name: Run Python Script
       run: |
-        ipython3 Generate_Osquery_Data-Linux.py
+        ipython Generate_Osquery_Data-Linux.py

@@ -6,7 +6,7 @@
 import pandas as pd, numpy as np, pathlib # pylint: disable=import-error
 import os
 # Used to be able to access locations on disk
-from IPython import get_ipython
+from IPython import get_ipython # pylint: disable=import-error
 
 # ## Set global variables
 #run once to get location of osqueryi on this system
