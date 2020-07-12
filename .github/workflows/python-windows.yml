@@ -11,7 +11,7 @@ on:
 #https://dev.to/shofol/run-your-github-actions-jobs-from-a-specific-directory-1i9e
 defaults:
   run:
-    working-directory: ./Windows_Get_Data
+    working-directory: ./Get_Data
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -47,4 +47,4 @@ jobs:
 
     - name: Run Python Script
       run: |
-        ipython Generate_Osquery_Data-Windows.py
+        python Generate_Osquery_Data-Windows.py 1

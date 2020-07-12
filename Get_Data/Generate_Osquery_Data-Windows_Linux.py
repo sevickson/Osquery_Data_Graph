@@ -1,8 +1,7 @@
 # ## Imports and Functions
-import platform
-import requests, os, pathlib, shutil, sys
+import platform, requests, os, pathlib, shutil, sys # pylint: disable=import-error
 # Standard modules to use and manipulate dataframes
-import pandas as pd, numpy as np
+import pandas as pd, numpy as np # pylint: disable=import-error
 
 #Varables
 hname = "osquery.io"
