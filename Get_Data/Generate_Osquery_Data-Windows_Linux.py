@@ -25,7 +25,7 @@ def install_on_linux():
     os.system('sudo apt-get update')
     os.system('sudo apt-get -y install gnupg software-properties-common')
     OSQUERY_KEY='1484120AC4E9F8A1A577AEEE97A80C63C9D8B80B'
-    os.system('sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys {OSQUERY_KEY}')
+    os.system('sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys ' + OSQUERY_KEY)
     os.system("sudo add-apt-repository 'deb [arch=amd64] https://pkg.osquery.io/deb deb main'")
     os.system('sudo apt-get update')
     os.system('sudo apt-get -y install osquery')
