@@ -3,7 +3,7 @@ import platform, requests, os, pathlib, shutil, sys # pylint: disable=import-err
 # Standard modules to use and manipulate dataframes
 import pandas as pd, numpy as np # pylint: disable=import-error
 #for Linux till removed
-import ipython # pylint: disable=import-error
+#import ipython # pylint: disable=import-error
 
 
 #Varables

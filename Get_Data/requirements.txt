@@ -3,5 +3,5 @@ numpy
 requests
 pathlib
 
-ipython
-ipykernel
+#ipython
+#ipykernel
