@@ -42,7 +42,7 @@ def install_osquery_wsl_linux(os_osq):
 
 def install_osquery_windows(win_osq):
     try:
-        os.system('\"'+ win_osq + 'osqueryi\" --version')
+        os.system('"'+ win_osq + 'osqueryi" --version')
         print("Osquery already installed")
     except:
         version = "4.4.0"
@@ -181,13 +181,14 @@ error_tables_w = ['ntfs_journal_events','powershell_events','windows_events','ca
 
 if platform.system() is "Windows":
     #Windows
-    print('Windows')
+    print(platform.system())
     location = os.getcwd()#.popen('cd').read().strip().split("\n")
     #location = ''.join(location).strip('[\']')
     twlocation = location + "\\table_data_win"
     pw = pathlib.Path(twlocation)
     csvlocation = location + "\\CSV"
     pcsv = pathlib.Path(csvlocation)
+    print(location,twlocation,csvlocation)
     print('Variabel definitions')
 
     #extra "" on purpose because it needs to pass this argument as-is to commandline
