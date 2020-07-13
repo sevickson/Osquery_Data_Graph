@@ -2,8 +2,9 @@
 This repository is used to hold Jupyter Notebooks that are used to work with Osquery table **DATA**.  
 
 ![TreeBeard](https://github.com/sevickson/Osquery_Data_Graph/workflows/TreeBeard/badge.svg)
-![Super-Linter](https://github.com/sevickson/Osquery_Data_Graph/workflows/Super-Linter/badge.svg)
+![Lint Code Base](https://github.com/sevickson/Osquery_Data_Graph/workflows/Lint%20Code%20Base/badge.svg)
 ![Clean Jupyter Notebooks](https://github.com/sevickson/Osquery_Data_Graph/workflows/Clean%20Jupyter%20Notebooks/badge.svg)
+![Python Script CI](https://github.com/sevickson/Osquery_Data_Graph/workflows/Python%20Script%20CI/badge.svg)
 
 This work is based on my prior work on Osquery Tables:
 - [Repository](https://github.com/sevickson/osquery_tables_graph)
