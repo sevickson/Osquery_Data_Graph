@@ -2,6 +2,7 @@
 import platform, requests, os, pathlib, shutil, sys # pylint: disable=import-error
 # Standard modules to use and manipulate dataframes
 import pandas as pd, numpy as np # pylint: disable=import-error
+import ipython #for Linux till removed
 
 #Varables
 hname = "osquery.io"
@@ -91,15 +92,9 @@ def run_on_wsl_linux(os_osqr,tables,tlocation):
 
 def run_osquery_wsl_linux(os_osq,p,tables,tlocation):#,password):
     create_folder(p,tlocation)
-    #limit = 50
-    if "wsl" in os_osq:
-        os_osqr = 'wsl -d'+' '+VM_Name+' '
-        flocation = tlocation + '\\' 
-        run_on_wsl_linux(os_osqr,tables,flocation)
-    else:
-        os_osqr = os_osq
-        flocation = tlocation + '/' 
-        run_on_wsl_linux(os_osqr,tables,flocation)
+    os_osqr = os_osq
+    flocation = tlocation + '/' 
+    run_on_wsl_linux(os_osqr,tables,flocation)
 
 def run_osquery_windows(tables,tlocation):
     #create_folder(p,tlocation)
@@ -184,16 +179,19 @@ error_tables_w = ['ntfs_journal_events','powershell_events','windows_events','ca
 
 if platform.system() is "Windows":
     #Windows
+    print('Windows')
     location = os.getcwd()#.popen('cd').read().strip().split("\n")
     #location = ''.join(location).strip('[\']')
     twlocation = location + "\\table_data_win"
     pw = pathlib.Path(twlocation)
     csvlocation = location + "\\CSV"
     pcsv = pathlib.Path(csvlocation)
+    print('Variabel definitions')
 
     #extra "" on purpose because it needs to pass this argument as-is to commandline
     osquery_w_location = '"C:\\Program Files\\osquery\\osqueryi.exe"'
     win_osq_loc = 'C:\\Program Files\\osquery\\'
+    print('Location variables')
     #Create folders
     create_folder(pw,twlocation)
     create_folder(pcsv,csvlocation)

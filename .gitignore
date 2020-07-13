@@ -8,3 +8,7 @@
 
 # gitignore Graphistry credentials
 .env
+
+# gitignore Get_Data output
+Get_Data/CSV
+Get_Data/table_data_win
