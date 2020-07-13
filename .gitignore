@@ -11,4 +11,4 @@
 
 # gitignore Get_Data output
 Get_Data/CSV
-Get_Data/table_data_win
+Get_Data/table_data_*

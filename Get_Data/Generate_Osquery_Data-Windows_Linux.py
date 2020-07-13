@@ -1,10 +1,7 @@
-# ## Imports and Functions
+#  Imports and Functions
 import platform, requests, os, pathlib, shutil, sys # pylint: disable=import-error
 # Standard modules to use and manipulate dataframes
 import pandas as pd, numpy as np # pylint: disable=import-error
-#for Linux till removed
-#import ipython # pylint: disable=import-error
-
 
 #Varables
 hname = "osquery.io"
@@ -24,20 +21,19 @@ def create_folder(p,tlocation):
     else:
         print ("Successfully created the directory %s " % tlocation)
 
-def install_on_linux(os_osq):
-    get_ipython().system('{os_osq} sudo apt-get update')
-    get_ipython().system('{os_osq} sudo apt-get -y install gnupg software-properties-common')
+def install_on_linux():
+    os.system('sudo apt-get update')
+    os.system('sudo apt-get -y install gnupg software-properties-common')
     OSQUERY_KEY='1484120AC4E9F8A1A577AEEE97A80C63C9D8B80B'
-    get_ipython().system('{os_osq} sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys {OSQUERY_KEY}')
-    get_ipython().system("{os_osq} sudo add-apt-repository 'deb [arch=amd64] https://pkg.osquery.io/deb deb main'")
-    get_ipython().system('{os_osq} sudo apt-get update')
-    get_ipython().system('{os_osq} sudo apt-get -y install osquery')
+    os.system('sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys {OSQUERY_KEY}')
+    os.system("sudo add-apt-repository 'deb [arch=amd64] https://pkg.osquery.io/deb deb main'")
+    os.system('sudo apt-get update')
+    os.system('sudo apt-get -y install osquery')
 
-def install_osquery_wsl_linux(os_osq):
+def install_osquery_wsl_linux():
     if shutil.which("osqueryi") is None:
-        install_on_linux(os_osq)
+        install_on_linux()
     else:
-        get_ipython().system('{os_osq}osqueryi --version')
         print("Osquery already installed")
 
 def install_osquery_windows():#win_osq):
@@ -54,66 +50,31 @@ def install_osquery_windows():#win_osq):
             open(osquery_filename, 'wb').write(r.content)
         #Install the Osquery MSI without interaction and also write out a log file in the same location to check if anything went wrong.
         os.system('msiexec /i ' + osquery_filename + ' /quiet /log "osquery-install.log"')
-
-#    try:
-#        osquery_w_location = 'C:\\"Program Files\\osquery\\osqueryi.exe"'
-#        command = osquery_w_location + ' --version'
-#        os.system(command)
-#        #os.system('"'+ win_osq + 'osqueryi" --version')
-#        print("Osquery already installed")
-#    except:
-#        version = "4.4.0"
-#        url = f'https://pkg.osquery.io/windows/osquery-{version}.msi'
-#        #First find name of file to be used for installing
-#        if url.find('/'):
-#            osquery_filename = url.rsplit('/', 1)[1]
-#            #Download file to current location
-#            r = requests.get(url, allow_redirects=True)
-#            open(osquery_filename, 'wb').write(r.content)
-#        #Install the Osquery MSI without interaction and also write out a log file in the same location to check if anything went wrong.
-#        os.system('msiexec /i ' + osquery_filename + ' /quiet /log "osquery-install.log"')
+        print("Osquery installed")
 
 def osquery_tables_os(os_osq):
-    #print(os_osq)
     osq_tables = os.popen('\"' + os_osq + 'osqueryi\" .tables').read().strip().split("\n")
     osq_tables = [o.strip('   =>') for o in osq_tables]
     return(osq_tables)
 
-def run_on_wsl_linux(os_osqr,tables,tlocation):
+def run_on_wsl_linux(tables,tlocation):
+    osquery_bin = shutil.which("osqueryi")
     for wt in tables:
         if wt not in error_tables_l and wt not in osquery_tables:
-            flocation = tlocation + wt 
+            flocation = tlocation + '/' + wt 
             if wt in curl_tables:
                 if wt == 'curl':
-                    command = '"SELECT * from '+wt+' WHERE url = \'https://'+hname+'\';"'
-                    if "wsl" in os_osqr:
-                        get_ipython().system('{os_osqr} sudo osqueryi {command} --json > {flocation}.json')
-                    else:
-                        get_ipython().system("$os_osqr sudo osqueryi $command --json > $flocation'.json'")
+                    command = 'osqueryi "SELECT * from ' + wt + ' WHERE url = \'https://' + hname + '\'' + limit + ';" --json > ' + flocation + '.json'
+                    os.system(command)
                 else:
-                    command = '"SELECT * from '+wt+' WHERE hostname = \''+hname+'\';"'
-                    if "wsl" in os_osqr:
-                        get_ipython().system('{os_osqr} sudo osqueryi {command} --json > {flocation}.json')
-                    else:
-                        get_ipython().system("$os_osqr sudo osqueryi $command --json > $flocation'.json'")
+                    command = 'osqueryi "SELECT * from ' + wt + ' WHERE hostname = \'' + hname + '\'' + limit + ';" --json > ' + flocation + '.json'
+                    os.system(command)
             elif wt in where_tables_l:
-                command = '"SELECT * from '+wt+' WHERE path = \''+osquery_l_location+'\';"'
-                if "wsl" in os_osqr:
-                    get_ipython().system('{os_osqr} sudo osqueryi {command} --json > {flocation}.json')
-                else:
-                    get_ipython().system("$os_osqr sudo osqueryi $command --json > $flocation'.json'")
+                command = 'osqueryi "SELECT * from ' + wt + ' WHERE path = \'' + osquery_bin + '\'' + limit + ';" --json > ' + flocation + '.json'
+                os.system(command)
             else:
-                command = '"SELECT * from '+wt+';"'
-                if "wsl" in os_osqr:
-                    get_ipython().system('{os_osqr} sudo osqueryi {command} --json > {flocation}.json')
-                else:
-                    get_ipython().system("$os_osqr sudo osqueryi $command --json > $flocation'.json'")
-
-def run_osquery_wsl_linux(os_osq,p,tables,tlocation):#,password):
-    create_folder(p,tlocation)
-    os_osqr = os_osq
-    flocation = tlocation + '/' 
-    run_on_wsl_linux(os_osqr,tables,flocation)
+                command = 'osqueryi "SELECT * from ' + wt + limit + ';" --json > ' + flocation + '.json'
+                os.system(command)
 
 def run_osquery_windows(tables,tlocation):
     #create_folder(p,tlocation)
@@ -138,7 +99,7 @@ def run_osquery_windows(tables,tlocation):
                 os.system(command)
             else:
                 command = osquery_w_location + ' "SELECT * from ' + wt + limit + ';" --json > ' + flocation + '.json'
-                print(command)
+                #print(command)
                 os.system(command)
         else:
             pass
@@ -147,7 +108,11 @@ def osquery_data_extract(p):
     data_columns = []
     for path in p.rglob("*.json"):
         os_t = path.stem
-        data = pd.read_json(path, orient='records', encoding='ANSI')
+        if platform.system() == "Windows":
+            data = pd.read_json(path, orient='records', encoding='ANSI')
+        else: 
+            data = pd.read_json(path, orient='records')#, encoding='unicode')
+    
         data = data.add_prefix(os_t+'.')
         for i in range(0, data.shape[0]):
             column_data = list(data.columns.values)
@@ -196,38 +161,37 @@ where_tables_w = ['authenticode','file','hash','ntfs_acl_permissions']
 #Tables that are event tables or tables that have not uniform WHERE constraints
 error_tables_w = ['ntfs_journal_events','powershell_events','windows_events','carves','carbon_black_info','chocolatey_packages']
 
-if platform.system() is "Windows":
+if platform.system() == "Windows":
     #Windows
     print(platform.system())
-    location = os.getcwd()#.popen('cd').read().strip().split("\n")
-    #location = ''.join(location).strip('[\']')
+    location = os.getcwd()
     twlocation = location + "\\table_data_win"
     pw = pathlib.Path(twlocation)
     csvlocation = location + "\\CSV"
     pcsv = pathlib.Path(csvlocation)
-    print(location,twlocation,csvlocation)
-    print('Variabel definitions')
 
     #extra "" on purpose because it needs to pass this argument as-is to commandline
     osquery_w_location = '"C:\\Program Files\\osquery\\osqueryi.exe"'
     win_osq_loc = 'C:\\Program Files\\osquery\\'
-    print('Location variables')
+
     #Create folders
     create_folder(pw,twlocation)
     create_folder(pcsv,csvlocation)
-    # ## Install Osquery on Windows
-    install_osquery_windows()#win_osq_loc)
-    # ## Get Osquery data Windows - JSON output
+
+    #  Install Osquery on Windows
+    install_osquery_windows()
+
+    #  Get Osquery data Windows - JSON output
     # **Consider running this part of the Jupyter Notebook once as Administrator to get data from all the tables, if not admin results from tables like `bitlocker_info` will be empty**    
     windows_tables = osquery_tables_os(win_osq_loc)
-    #print('2',win_osq)
+
     run_osquery_windows(windows_tables,twlocation)
-    #print('3',osquery_w_location)
-    # ## Handling Osquery data
-    # ### Windows
+
+    #  Handling Osquery data
+    # # Windows
     # Create a DataFrame from the data extracted from Osquery.
     data_extract_win = osquery_data_extract(pw)
-    #print('4')
+
     extract_df_win = pd.DataFrame([t for lst in data_extract_win for t in lst], columns = ['Table.Column','Data'])
     print(extract_df_win.shape)
     # Make Table and Column columns, remove empty or NULL entries.  
@@ -247,21 +211,25 @@ if platform.system() is "Windows":
     print(filtered_data_win_anon_dup.shape)
     filtered_data_win_anon_dup.to_csv(location + '\\CSV\\data_for_graphs_dup_windows.csv',index=False)
 
-elif platform.system() is "Linux":
+elif platform.system() == "Linux":
     #Linux
-    #maybe https://gist.github.com/parente/b6ee0efe141822dfa18b6feeda0a45e5 ??
-    osquery_l_location = get_ipython().getoutput('which osqueryi')
-    osquery_l_location = ''.join(osquery_l_location)
-    location = os.popen('cd').read().strip().split("\n")
+    print(platform.system())
+    location = os.getcwd()
     tllocation = location + "/table_data_lnx"
     pl = pathlib.Path(tllocation)
+    csvlocation = location + "/CSV"
+    pcsv = pathlib.Path(csvlocation)
     lnx_osq = ''
-    # ## Linux
-    install_osquery_wsl_linux(lnx_osq)
-    # ## Get Osquery data Linux - JSON output
+
+    #Create folders
+    create_folder(pl,tllocation)
+    create_folder(pcsv,csvlocation)
+
+    install_osquery_wsl_linux()
+    #  Get Osquery data Linux - JSON output
     # This works directly on the Linux system.
     lnx_tables = osquery_tables_os(lnx_osq)
-    run_osquery_wsl_linux(lnx_osq,pl,lnx_tables,tllocation)
+    run_on_wsl_linux(lnx_tables,tllocation)
     # Create a DataFrame from the data extracted from Osquery.
     data_extract_lin = osquery_data_extract(pl)
     extract_df_lin = pd.DataFrame([t for lst in data_extract_lin for t in lst], columns = ['Table.Column','Data'])
@@ -277,9 +245,9 @@ elif platform.system() is "Linux":
     print(filtered_data_lin_anon.columns)
     # Save CSV with only basic filtering
     print(filtered_data_lin_anon.shape)
-    filtered_data_lin_anon.to_csv(location + '\\CSV\\data_for_graphs_full_linux.csv',index=False)
+    filtered_data_lin_anon.to_csv(location + '/CSV/data_for_graphs_full_linux.csv',index=False)
     # Create DataFrame with only duplicata data.  
     # Save CSV with duplicate filtering.
     filtered_data_lin_anon_dup = get_dup_data(filtered_data_lin)
     print(filtered_data_lin_anon_dup.shape)
-    filtered_data_lin_anon_dup.to_csv(location + '\\CSV\\data_for_graphs_dup_linux.csv',index=False)
+    filtered_data_lin_anon_dup.to_csv(location + '/CSV/data_for_graphs_dup_linux.csv',index=False)
