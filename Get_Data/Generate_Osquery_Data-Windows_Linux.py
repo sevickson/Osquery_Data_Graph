@@ -129,7 +129,9 @@ def filter_osquery_data(df):
     df = df[['Table','Table.Column','Column','Data']]
 
     #Remove null and empty data fields
-    extract_df_clean = df[(df['Data'].notnull()) & (df['Data'] != '')]
+    #.copy() to fix error: SettingWithCopyWarning: A value is trying to be set on a copy of a slice from a DataFrame.
+    #https://github.com/pandas-dev/pandas/issues/17476
+    extract_df_clean = df[(df['Data'].notnull()) & (df['Data'] != '')].copy()
     extract_df_clean.drop_duplicates(keep='first', inplace=True) 
 
     #Filter out all entries with 2 or less characters in the Data field, these entries are too general to make good joins
@@ -138,8 +140,10 @@ def filter_osquery_data(df):
 
 def anonymize_data(df):
     #Anonimze Data column, create new column for now, drop Data later
-    extract_df_clean_full = df
-    extract_df_clean_full['anon'] = pd.factorize(extract_df_clean_full.Data)[0]
+    #.copy() to fix error: SettingWithCopyWarning: A value is trying to be set on a copy of a slice from a DataFrame.
+    #https://github.com/pandas-dev/pandas/issues/17476
+    extract_df_clean_full = df.copy()
+    extract_df_clean_full['anon'] = pd.factorize(df.Data)[0]
     extract_df_clean_full = extract_df_clean_full[extract_df_clean_full.anon != -1]
     #Drop data to anonymize the table completely
     extract_df_clean_full.drop(columns=['Data'],inplace=True)
@@ -193,22 +197,22 @@ if platform.system() == "Windows":
     data_extract_win = osquery_data_extract(pw)
 
     extract_df_win = pd.DataFrame([t for lst in data_extract_win for t in lst], columns = ['Table.Column','Data'])
-    print(extract_df_win.shape)
+    #print(extract_df_win.shape)
     # Make Table and Column columns, remove empty or NULL entries.  
     # Filter out all entries with 2 or less characters in the Data field, these entries are too generic to make good joins.
     filtered_data_win = filter_osquery_data(extract_df_win)
-    print(filtered_data_win.shape)
+    #print(filtered_data_win.shape)
     # Anonymize the data and remove the Data column.
-    print(filtered_data_win.columns)
+    #print(filtered_data_win.columns)
     filtered_data_win_anon = anonymize_data(filtered_data_win)
-    print(filtered_data_win_anon.columns)
+    #print(filtered_data_win_anon.columns)
     # Save CSV with only basic filtering
-    print(filtered_data_win_anon.shape)
+    #print(filtered_data_win_anon.shape)
     filtered_data_win_anon.to_csv(location + '\\CSV\\data_for_graphs_full_windows.csv',index=False)
     # Create DataFrame with only duplicata data.  
     # Save CSV with duplicate filtering.
     filtered_data_win_anon_dup = get_dup_data(filtered_data_win)
-    print(filtered_data_win_anon_dup.shape)
+    #print(filtered_data_win_anon_dup.shape)
     filtered_data_win_anon_dup.to_csv(location + '\\CSV\\data_for_graphs_dup_windows.csv',index=False)
 
 elif platform.system() == "Linux":
@@ -233,21 +237,21 @@ elif platform.system() == "Linux":
     # Create a DataFrame from the data extracted from Osquery.
     data_extract_lin = osquery_data_extract(pl)
     extract_df_lin = pd.DataFrame([t for lst in data_extract_lin for t in lst], columns = ['Table.Column','Data'])
-    print(extract_df_lin.shape)
+    #print(extract_df_lin.shape)
     # Make Table and Column columns, remove empty or NULL entries.  
     # Filter out all entries with 2 or less characters in the Data field, these entries are too generic to make good joins.
-    print(extract_df_lin.shape)
+    #print(extract_df_lin.shape)
     filtered_data_lin = filter_osquery_data(extract_df_lin)
-    print(filtered_data_lin.shape)
+    #print(filtered_data_lin.shape)
     # Anonymize the data and remove the Data column.
-    print(filtered_data_lin.columns)
+    #print(filtered_data_lin.columns)
     filtered_data_lin_anon = anonymize_data(filtered_data_lin)
-    print(filtered_data_lin_anon.columns)
+    #print(filtered_data_lin_anon.columns)
     # Save CSV with only basic filtering
-    print(filtered_data_lin_anon.shape)
+    #print(filtered_data_lin_anon.shape)
     filtered_data_lin_anon.to_csv(location + '/CSV/data_for_graphs_full_linux.csv',index=False)
     # Create DataFrame with only duplicata data.  
     # Save CSV with duplicate filtering.
     filtered_data_lin_anon_dup = get_dup_data(filtered_data_lin)
-    print(filtered_data_lin_anon_dup.shape)
+    #print(filtered_data_lin_anon_dup.shape)
     filtered_data_lin_anon_dup.to_csv(location + '/CSV/data_for_graphs_dup_linux.csv',index=False)
