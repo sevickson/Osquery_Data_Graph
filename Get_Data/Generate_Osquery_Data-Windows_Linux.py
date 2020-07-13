@@ -41,13 +41,9 @@ def install_osquery_wsl_linux(os_osq):
         print("Osquery already installed")
 
 def install_osquery_windows():#win_osq):
-    try:
-        osquery_w_location = 'C:\\"Program Files\\osquery\\osqueryi.exe"'
-        command = osquery_w_location + ' --version'
-        os.system(command)
-        #os.system('"'+ win_osq + 'osqueryi" --version')
+    if os.path.isfile('C:\\Program Files\\osquery\\osqueryi.exe'):
         print("Osquery already installed")
-    except:
+    else:
         version = "4.4.0"
         url = f'https://pkg.osquery.io/windows/osquery-{version}.msi'
         #First find name of file to be used for installing
@@ -58,6 +54,24 @@ def install_osquery_windows():#win_osq):
             open(osquery_filename, 'wb').write(r.content)
         #Install the Osquery MSI without interaction and also write out a log file in the same location to check if anything went wrong.
         os.system('msiexec /i ' + osquery_filename + ' /quiet /log "osquery-install.log"')
+
+#    try:
+#        osquery_w_location = 'C:\\"Program Files\\osquery\\osqueryi.exe"'
+#        command = osquery_w_location + ' --version'
+#        os.system(command)
+#        #os.system('"'+ win_osq + 'osqueryi" --version')
+#        print("Osquery already installed")
+#    except:
+#        version = "4.4.0"
+#        url = f'https://pkg.osquery.io/windows/osquery-{version}.msi'
+#        #First find name of file to be used for installing
+#        if url.find('/'):
+#            osquery_filename = url.rsplit('/', 1)[1]
+#            #Download file to current location
+#            r = requests.get(url, allow_redirects=True)
+#            open(osquery_filename, 'wb').write(r.content)
+#        #Install the Osquery MSI without interaction and also write out a log file in the same location to check if anything went wrong.
+#        os.system('msiexec /i ' + osquery_filename + ' /quiet /log "osquery-install.log"')
 
 def osquery_tables_os(os_osq):
     #print(os_osq)
