@@ -3,8 +3,8 @@ name: TreeBeard
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
-  #push:
-  #  branches: [ master ]
+  push:
+    branches: [ master ]
   pull_request:
     branches: [ master ]
 
@@ -15,7 +15,7 @@ jobs:
     # The type of runner that the job will run on
     strategy:
       matrix:
-        os: ['ubuntu-18.04', 'ubuntu-20.04', 'windows-2016']
+        os: ['ubuntu-16.04', 'ubuntu-18.04', 'ubuntu-20.04', 'windows-2016', 'windows-2019', 'macos-latest'] #['ubuntu-18.04', 'ubuntu-20.04', 'windows-2016']
         #Python >= 3.6 required
         python-version: [3.6, 3.7, 3.8]
 
@@ -35,10 +35,11 @@ jobs:
         python-version: ${{ matrix.python-version }}
     
     # Cython installation needed for Windows CI
+    # Manually install python deps as running dockerless
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip cython
-        pip install -r requirements.txt # Manually install python deps as running dockerless
+        pip install -r requirements.txt 
       working-directory: "./"
 
     # Run TreeBeard
