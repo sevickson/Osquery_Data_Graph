@@ -42,9 +42,10 @@ jobs:
     
     - name: Install dependencies
       run: |
-        python3 -m pip install --upgrade pip
+        python -m pip install --upgrade pip
         pip install -r requirements.txt
 
     - name: Run Python Script
       run: |
-        python3 Generate_Osquery_Data-Windows_Linux.py 1
+        python --version
+        python Generate_Osquery_Data-Windows_Linux.py 1
