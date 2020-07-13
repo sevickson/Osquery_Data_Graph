@@ -1,4 +1,4 @@
-name: Run Python Script Windows/Linux
+name: Python Script Windows/Linux
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -20,9 +20,9 @@ jobs:
     # The type of runner that the job will run on
     strategy:
       matrix:
-        os: ['ubuntu-latest', 'windows-latest'] #['ubuntu-16.04', 'ubuntu-18.04', 'ubuntu-20.04'] #, 'windows-2016']
+        os: ['ubuntu-latest', 'windows-2016'] #['ubuntu-16.04', 'ubuntu-18.04', 'ubuntu-20.04'] #, 'windows-2016']
         #Python >= 3.6 required
-        python-version: [3.8] #[3.6, 3.7, 3.8]
+        python-version: [3.6, 3.7, 3.8]
 
     #runs-on: windows-2019
     runs-on: ${{ matrix.os }}

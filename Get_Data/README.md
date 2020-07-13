@@ -1,14 +1,14 @@
 # Run Osquery on Windows and Linux to get needed data for the graphs
 
 ## Windows
-### Get requirements
+### Get requirements Windows
 [Python](https://www.microsoft.com/store/productId/9MSSZTT1N39L) needs to be installed, can be installed through the Windows Store
 ```cmd
 python -m pip install --user --upgrade pip
 pip install --user --upgrade -r requirements.txt
 ```
 
-### Run the script
+### Run the script Windows
 Run this script in an Administrator `cmd` terminal.
 ```cmd
 python Generate_Osquery_Data-Windows_Linux.py
@@ -24,13 +24,13 @@ If python3 is not already installed, please run following command.
 ```bash
 sudo apt-get install python3
 ```
-### Get requirements
-```bash
+### Get requirements Linux
+```bash 
 python -m pip install --user --upgrade pip
 pip install --user --upgrade -r requirements.txt
 ```
 
-### Run the script
+### Run the script Linux
 Run this script in a `bash` terminal.
 `sudo` is needed to get all possible data from Osquery.
 ```bash
