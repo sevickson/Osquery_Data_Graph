@@ -25,7 +25,7 @@ If python3 is not already installed, please run following command.
 sudo apt-get install python3
 ```
 ### Get requirements Linux
-```bash 
+```bash
 python -m pip install --user --upgrade pip
 pip install --user --upgrade -r requirements.txt
 ```

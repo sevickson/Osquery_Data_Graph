@@ -215,7 +215,7 @@ if platform.system() == "Windows":
     #print(filtered_data_win_anon_dup.shape)
     filtered_data_win_anon_dup.to_csv(location + '\\CSV\\data_for_graphs_dup_windows.csv',index=False)
 
-elif platform.system() == "Linux":
+elif platform.system() == "Linux" or platform.system() == "Darwin":
     #Linux
     print(platform.system())
     location = os.getcwd()
