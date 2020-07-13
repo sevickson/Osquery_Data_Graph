@@ -40,9 +40,12 @@ def install_osquery_wsl_linux(os_osq):
         get_ipython().system('{os_osq}osqueryi --version')
         print("Osquery already installed")
 
-def install_osquery_windows(win_osq):
+def install_osquery_windows():#win_osq):
     try:
-        os.system('"'+ win_osq + 'osqueryi" --version')
+        osquery_w_location = 'C:\\"Program Files\\osquery\\osqueryi.exe"'
+        command = osquery_w_location + ' --version'
+        os.system(command)
+        #os.system('"'+ win_osq + 'osqueryi" --version')
         print("Osquery already installed")
     except:
         version = "4.4.0"
@@ -199,7 +202,7 @@ if platform.system() is "Windows":
     create_folder(pw,twlocation)
     create_folder(pcsv,csvlocation)
     # ## Install Osquery on Windows
-    install_osquery_windows(win_osq_loc)
+    install_osquery_windows()#win_osq_loc)
     # ## Get Osquery data Windows - JSON output
     # **Consider running this part of the Jupyter Notebook once as Administrator to get data from all the tables, if not admin results from tables like `bitlocker_info` will be empty**    
     windows_tables = osquery_tables_os(win_osq_loc)
