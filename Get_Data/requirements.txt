@@ -1,5 +1,6 @@
 pandas
 numpy
+requests
 #ipython
 pathlib
 #ipykernel
