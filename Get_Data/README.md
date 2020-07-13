@@ -4,7 +4,7 @@
 ![Python Script CI](https://github.com/sevickson/Osquery_Data_Graph/workflows/Python%20Script%20CI/badge.svg)
 
 ## Windows
-### Get Windows requirements 
+### Get Windows requirements
 [Python](https://www.microsoft.com/store/productId/9MSSZTT1N39L) needs to be installed, can be installed through the Windows Store
 ```cmd
 python -m pip install --user --upgrade pip
@@ -23,7 +23,7 @@ If python3 is not already installed, please run following command.
 ```bash
 sudo apt-get install python3
 ```
-### Get Linux requirements 
+### Get Linux requirements
 ```bash
 python -m pip install --user --upgrade pip
 pip install --user --upgrade -r requirements.txt
@@ -42,7 +42,7 @@ If python3 is not already installed, please run following command.
 ```bash
 brew install python3
 ```
-### Get MacOS requirements 
+### Get MacOS requirements
 ```bash
 python -m pip install --user --upgrade pip
 pip install --user --upgrade -r requirements.txt
