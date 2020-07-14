@@ -1,4 +1,4 @@
-# Run Osquery on Windows/Linux/MacOS to get data📜 for the Osquery❓ tables graphs🕸!
+# Run Osquery on Windows/Linux/MacOS to get data📜 for the Osquery❓ tables graphs🕸
 
 ![Lint Code Base](https://github.com/sevickson/Osquery_Data_Graph/workflows/Lint%20Code%20Base/badge.svg)
 ![Python Script CI](https://github.com/sevickson/Osquery_Data_Graph/workflows/Python%20Script%20CI/badge.svg)
