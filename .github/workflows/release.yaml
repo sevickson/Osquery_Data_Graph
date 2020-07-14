@@ -4,11 +4,6 @@ on:
   push:
     branches:
       - master
-
-#https://dev.to/shofol/run-your-github-actions-jobs-from-a-specific-directory-1i9e
-#defaults:
-#  run:
-#    working-directory: ./Get_Data
   
 jobs:
   build:
@@ -23,16 +18,10 @@ jobs:
 #        SOURCE: Get_Data
 #        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #        REPO_OWNER: Sevickson
-#    - uses: "marvinpinto/action-automatic-releases@latest"
-#      with:
-#        repo_token: "${{ secrets.GITHUB_TOKEN }}"
-#        automatic_release_tag: "latest"
-#        prerelease: true
-#        title: "Build"
-#        files: Get_Data/*
-
-    - uses: AButler/upload-release-assets@v2.0
+    - uses: "marvinpinto/action-automatic-releases@latest"
       with:
-        files: 'Get_Data/*'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        release-tag: 'v0.5'
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: "latest"
+        prerelease: true
+        title: "OsqueryGetData"
+        files: Get_Data/*
