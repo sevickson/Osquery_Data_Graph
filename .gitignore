@@ -6,10 +6,6 @@
 .myvenv
 */.myvenv/*
 
-# gitignore .github
-.github
-*/.github/*
-
 # gitignore Graphistry credentials
 .env
 
