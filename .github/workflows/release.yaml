@@ -19,13 +19,13 @@ jobs:
 #        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #        REPO_OWNER: Sevickson
 
-#    - uses: "marvinpinto/action-automatic-releases@latest"
-#      with:
-#        repo_token: "${{ secrets.GITHUB_TOKEN }}"
-#        automatic_release_tag: "latest"
-#        prerelease: false
-#        title: "OsqueryGetData"
-#        files: Get_Data/*
+    - uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: "latest"
+        prerelease: false
+        title: "OsqueryGetData"
+        files: Get_Data/*
 
     #- uses: svenstaro/upload-release-action@v2
     #  with:
