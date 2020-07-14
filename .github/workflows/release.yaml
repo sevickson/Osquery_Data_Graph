@@ -24,9 +24,9 @@ jobs:
 #        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #        REPO_OWNER: Sevickson
     - uses: "marvinpinto/action-automatic-releases@latest"
-    with:
-      repo_token: "${{ secrets.GITHUB_TOKEN }}"
-      automatic_release_tag: "latest"
-      prerelease: true
-      title: "Build"
-      files: Get_Data/*
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: "latest"
+        prerelease: true
+        title: "Build"
+        files: Get_Data/*
