@@ -35,3 +35,4 @@ jobs:
       with:
         files: 'Get_Data/*'
         repo-token: ${{ secrets.GITHUB_TOKEN }}
+        release-tag: 'v0.5'
