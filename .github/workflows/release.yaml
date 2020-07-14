@@ -27,11 +27,11 @@ jobs:
 #        title: "OsqueryGetData"
 #        files: Get_Data/*
 
-    - uses: svenstaro/upload-release-action@v2
-      with:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: Get_Data/*
-        tag: v1.0 #${{ github.ref }}
-        overwrite: true
-        file_glob: true
-        release_name: OsqueryGetData
+    #- uses: svenstaro/upload-release-action@v2
+    #  with:
+    #    repo_token: ${{ secrets.GITHUB_TOKEN }}
+    #    file: Get_Data/*
+    #    tag: v1.0 #${{ github.ref }}
+    #    overwrite: true
+    #    file_glob: true
+    #    release_name: OsqueryGetData
