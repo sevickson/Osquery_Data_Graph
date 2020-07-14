@@ -11,12 +11,10 @@ This work is based on my prior work on Osquery Tables:
 - [Blog](https://medium.com/@sevickson/untangling-the-osquery-tables-web-using-jupyter-notebooks-7c979c03f42d)
 
 This repository is divided as follows:
-- [Generate Osquery Data](Generate_Osquery_Data.ipynb)
-- [Create Graph Osquery Graphistry](Create_Graph_Osquery_Graphistry.ipynb)
+- [Generate Osquery Data](./Jupyter NBs/1_Get_Osquery_Data.ipynb)
+- [Create Graph Osquery Graphistry](./Jupyter NBs/3_Graph_Osquery_Data.ipynb)
 - [REQ](REQ)
   - Requirements folder
-- [Linux Get Data](Linux_Get_Data)
-  - Jupyter Notebook and requirements to get Osquery on a Linux system
 
 This repository is based on blog ...
 The graphs are based on Osquery data for Windows and Linux.

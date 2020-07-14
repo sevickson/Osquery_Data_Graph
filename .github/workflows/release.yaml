@@ -1,0 +1,24 @@
+name: DeployCI
+#https://medium.com/@Keithweaver_/zip-code-base-with-github-actions-for-releases-aca66f530dae
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: '0'
+    - name: Create Release Folder
+      run: rsync -arv ./Get_Data ./release
+    - name: Switch to Release Folder
+      run: |
+        cd release
+        ls -la
+    - name: Bump version and push tag
+      uses: anothrNick/github-tag-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        REPO_OWNER: Sevickson

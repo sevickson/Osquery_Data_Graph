@@ -175,7 +175,7 @@ if platform.system() == "Windows":
     location = os.getcwd()
     twlocation = location + "\\table_data_win"
     pw = pathlib.Path(twlocation)
-    csvlocation = location + "\\CSV"
+    csvlocation = location + "\\Data"
     pcsv = pathlib.Path(csvlocation)
 
     #extra "" on purpose because it needs to pass this argument as-is to commandline
@@ -212,12 +212,12 @@ if platform.system() == "Windows":
     #print(filtered_data_win_anon.columns)
     # Save CSV with only basic filtering
     #print(filtered_data_win_anon.shape)
-    filtered_data_win_anon.to_csv(location + '\\CSV\\data_for_graphs_full_windows.csv',index=False)
+    filtered_data_win_anon.to_csv(location + '\\Data\\data_for_graphs_full_windows.csv',index=False)
     # Create DataFrame with only duplicata data.  
     # Save CSV with duplicate filtering.
     filtered_data_win_anon_dup = get_dup_data(filtered_data_win)
     #print(filtered_data_win_anon_dup.shape)
-    filtered_data_win_anon_dup.to_csv(location + '\\CSV\\data_for_graphs_dup_windows.csv',index=False)
+    filtered_data_win_anon_dup.to_csv(location + '\\Data\\data_for_graphs_dup_windows.csv',index=False)
 
 elif platform.system() == "Linux" or platform.system() == "Darwin":
     #Linux
@@ -225,7 +225,7 @@ elif platform.system() == "Linux" or platform.system() == "Darwin":
     location = os.getcwd()
     tllocation = location + "/table_data_lnx"
     pl = pathlib.Path(tllocation)
-    csvlocation = location + "/CSV"
+    csvlocation = location + "/Data"
     pcsv = pathlib.Path(csvlocation)
     lnx_osq = ''
 
@@ -253,9 +253,9 @@ elif platform.system() == "Linux" or platform.system() == "Darwin":
     #print(filtered_data_lin_anon.columns)
     # Save CSV with only basic filtering
     #print(filtered_data_lin_anon.shape)
-    filtered_data_lin_anon.to_csv(location + '/CSV/data_for_graphs_full_linux.csv',index=False)
+    filtered_data_lin_anon.to_csv(location + '/Data/data_for_graphs_full_linux.csv',index=False)
     # Create DataFrame with only duplicata data.  
     # Save CSV with duplicate filtering.
     filtered_data_lin_anon_dup = get_dup_data(filtered_data_lin)
     #print(filtered_data_lin_anon_dup.shape)
-    filtered_data_lin_anon_dup.to_csv(location + '/CSV/data_for_graphs_dup_linux.csv',index=False)
+    filtered_data_lin_anon_dup.to_csv(location + '/Data/data_for_graphs_dup_linux.csv',index=False)

@@ -10,5 +10,5 @@
 .env
 
 # gitignore Get_Data output
-Get_Data/CSV
+Get_Data/Data
 Get_Data/table_data_*
