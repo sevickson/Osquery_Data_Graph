@@ -9,9 +9,9 @@ on:
     branches: [ master ]
 
 #https://dev.to/shofol/run-your-github-actions-jobs-from-a-specific-directory-1i9e
-defaults:
-  run:
-    working-directory: ./Jupyter NBs
+#defaults:
+#  run:
+#    working-directory: ./Jupyter NBs
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -43,6 +43,7 @@ jobs:
     # Manually install python deps as running dockerless
     - name: Install dependencies
       run: |
+        cd Jupyter_NBs
         python -m pip install --upgrade pip cython
         pip install -r requirements.txt 
       working-directory: "./"
@@ -52,7 +53,7 @@ jobs:
       uses: treebeardtech/treebeard@master
       with:
         use-docker: false
-        path: ./
+        path: ./Jupyter_NBs
       env: 
         TB_API1_KEY: "${{ secrets.API1_KEY }}"
         TB_API3_USERNAME: "${{ secrets.API3_USERNAME }}"
