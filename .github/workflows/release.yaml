@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - master
+
+#https://dev.to/shofol/run-your-github-actions-jobs-from-a-specific-directory-1i9e
+defaults:
+  run:
+    working-directory: ./Get_Data
 jobs:
   build:
     runs-on: ubuntu-latest
