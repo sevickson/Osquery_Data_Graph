@@ -54,6 +54,7 @@ jobs:
       with:
         use-docker: false
         path: ./Jupyter_NBs
+        api-key: ${{ secrets.TREEBEARD_API_KEY }}
       env: 
         TB_API1_KEY: "${{ secrets.API1_KEY }}"
         TB_API3_USERNAME: "${{ secrets.API3_USERNAME }}"
