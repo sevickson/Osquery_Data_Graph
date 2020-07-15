@@ -24,7 +24,7 @@ jobs:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
         automatic_release_tag: "latest"
         prerelease: false
-        title: "OsqueryGetData"
+        title: "OsqueryGetData_v0.1"
         files: Get_Data/*
 
     #- uses: svenstaro/upload-release-action@v2
