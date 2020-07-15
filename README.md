@@ -4,7 +4,7 @@ This repository is used to hold Jupyter Notebooks that are used to work with Osq
 [![Treebeard notebook status](https://api.treebeard.io/sevickson/Jupyter_NBs/master/buildbadge)](https://treebeard.io/admin/sevickson/Jupyter_NBs/master "Latest notebook run")
 ![Lint Code Base](https://github.com/sevickson/Osquery_Data_Graph/workflows/Lint%20Code%20Base/badge.svg)
 ![Clean Jupyter NB](https://github.com/sevickson/Osquery_Data_Graph/workflows/Clean%20Jupyter%20NB/badge.svg)
-![Python Script CI](https://github.com/sevickson/Osquery_Data_Graph/workflows/Python%20Script%20CI/badge.svg)
+![Windows | Linux | macOS Build](https://github.com/sevickson/Osquery_Data_Graph/workflows/Windows%20%7C%20Linux%20%7C%20macOS%20Build/badge.svg)
 
 This work is based on my prior work on Osquery Tables:
 - [Repository](https://github.com/sevickson/osquery_tables_graph)

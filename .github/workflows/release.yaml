@@ -11,19 +11,16 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - uses: "marvinpinto/action-automatic-releases@latest"
+    - name: Delete
+      uses: ame-yu/action-delete-latest-release@v2
       with:
-        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+
+    - uses: marvinpinto/action-automatic-releases@latest
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
         automatic_release_tag: "latest"
         prerelease: false
-        title: "OsqueryGetData_v0.1"
+        title: "OsqueryGetData"
         files: Get_Data/*
 
-    #- uses: svenstaro/upload-release-action@v2
-    #  with:
-    #    repo_token: ${{ secrets.GITHUB_TOKEN }}
-    #    file: Get_Data/*
-    #    tag: v1.0 #${{ github.ref }}
-    #    overwrite: true
-    #    file_glob: true
-    #    release_name: OsqueryGetData

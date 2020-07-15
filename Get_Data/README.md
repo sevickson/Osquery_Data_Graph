@@ -1,7 +1,7 @@
 # Run Osquery on Windows | Linux | macOS to get data📜 for the Osquery❓ tables graph🕸
 
 ![Lint Code Base](https://github.com/sevickson/Osquery_Data_Graph/workflows/Lint%20Code%20Base/badge.svg)
-![Python Script CI](https://github.com/sevickson/Osquery_Data_Graph/workflows/Python%20Script%20CI/badge.svg)
+![Windows | Linux | macOS Build](https://github.com/sevickson/Osquery_Data_Graph/workflows/Windows%20%7C%20Linux%20%7C%20macOS%20Build/badge.svg)
 
 <img src="https://www.game-experience.nl/wp-content/uploads/2018/04/Windows-10-logo-300x300.png" alt="Windows" width="40" height="40">  
 

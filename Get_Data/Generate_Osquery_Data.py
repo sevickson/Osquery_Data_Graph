@@ -112,6 +112,7 @@ def osquery_data_extract(p):
     data_columns = []
     for path in p.rglob("*.json"):
         os_t = path.stem
+        #print(os_t,path.stat().st_size)
         if platform.system() == "Windows":
             data = pd.read_json(path, orient='records', encoding='ANSI')
         else: 
