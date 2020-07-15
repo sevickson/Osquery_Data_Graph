@@ -1,9 +1,11 @@
-# Run Osquery on Windows/Linux/MacOS to get data📜 for the Osquery❓ tables graphs🕸
+# Run Osquery on Windows | Linux | macOS to get data📜 for the Osquery❓ tables graph🕸
 
 ![Lint Code Base](https://github.com/sevickson/Osquery_Data_Graph/workflows/Lint%20Code%20Base/badge.svg)
 ![Python Script CI](https://github.com/sevickson/Osquery_Data_Graph/workflows/Python%20Script%20CI/badge.svg)
 
-## Windows
+<img src="https://www.game-experience.nl/wp-content/uploads/2018/04/Windows-10-logo-300x300.png" alt="Windows" width="40" height="40">  
+
+## Windows 
 Python >= 3.6 is needed.  
 [Python 3.8](https://www.microsoft.com/store/productId/9MSSZTT1N39L) can be installed through the Windows Store
 ### Get Windows requirements
@@ -17,6 +19,8 @@ Run this script in an Administrator `cmd` terminal.
 ```cmd
 python Generate_Osquery_Data.py
 ```
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/1200px-Tux.svg.png" alt="Linux" width="40" height="40">
 
 ## Linux
 Python >= 3.6 is needed.  
@@ -37,20 +41,22 @@ Run this script in a terminal.
 sudo python Generate_Osquery_Data.py
 ```
 
-## MacOS
+<img src="https://cdn0.iconfinder.com/data/icons/flat-round-system/512/apple-512.png" alt="macOS" width="40" height="40">
+
+## macOS
 Python >= 3.6 is needed.  
 If python3 is not already installed, please run following command.
 ```bash
 brew update
 brew install python3
 ```
-### Get MacOS requirements
+### Get macOS requirements
 ```bash
 python -m pip install --user --upgrade pip
 pip install --user --upgrade -r requirements.txt
 ```
 
-### Run the script on MacOS
+### Run the script on macOS
 Run this script in a terminal.  
 `sudo` is needed to get all possible data from the Osquery tables.
 ```bash

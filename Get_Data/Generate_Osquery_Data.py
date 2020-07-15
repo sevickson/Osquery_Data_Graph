@@ -115,7 +115,7 @@ def osquery_data_extract(p):
         if platform.system() == "Windows":
             data = pd.read_json(path, orient='records', encoding='ANSI')
         else: 
-            data = pd.read_json(path, orient='records')#, encoding='unicode')
+            data = pd.read_json(path, orient='records')
     
         data = data.add_prefix(os_t+'.')
         for i in range(0, data.shape[0]):

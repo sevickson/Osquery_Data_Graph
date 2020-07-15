@@ -1,7 +1,7 @@
 # Untangling the Osquery❓ tables web🕸 using Jupyter Notebooks📓 - Part 2 | With Data📜
 This repository is used to hold Jupyter Notebooks that are used to work with Osquery table **DATA**.  
 
-![TreeBeard](https://github.com/sevickson/Osquery_Data_Graph/workflows/TreeBeard/badge.svg)
+[![Treebeard notebook status](https://api.treebeard.io/sevickson/Jupyter_NBs/master/buildbadge)](https://treebeard.io/admin/sevickson/Jupyter_NBs/master "Latest notebook run")
 ![Lint Code Base](https://github.com/sevickson/Osquery_Data_Graph/workflows/Lint%20Code%20Base/badge.svg)
 ![Clean Jupyter NB](https://github.com/sevickson/Osquery_Data_Graph/workflows/Clean%20Jupyter%20NB/badge.svg)
 ![Python Script CI](https://github.com/sevickson/Osquery_Data_Graph/workflows/Python%20Script%20CI/badge.svg)

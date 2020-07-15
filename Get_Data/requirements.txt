@@ -2,6 +2,3 @@ pandas
 numpy
 requests
 pathlib
-
-#ipython
-#ipykernel
