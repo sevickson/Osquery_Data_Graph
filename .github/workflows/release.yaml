@@ -10,21 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    #  with:
-    #    fetch-depth: '0'
-#    - name: Bump version and push tag
-#      uses: anothrNick/github-tag-action@master
-#      env:
-#        SOURCE: Get_Data
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#        REPO_OWNER: Sevickson
 
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
         automatic_release_tag: "latest"
         prerelease: false
-        title: "OsqueryGetData"
+        title: "OsqueryGetData_v0.1"
         files: Get_Data/*
 
     #- uses: svenstaro/upload-release-action@v2
