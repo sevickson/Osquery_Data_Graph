@@ -5,7 +5,7 @@
 
 <img src="https://www.game-experience.nl/wp-content/uploads/2018/04/Windows-10-logo-300x300.png" alt="Windows" width="40" height="40">  
 
-## Windows 
+## Windows
 Python >= 3.6 is needed.  
 [Python 3.8](https://www.microsoft.com/store/productId/9MSSZTT1N39L) can be installed through the Windows Store
 ### Get Windows requirements
