@@ -15,12 +15,20 @@ jobs:
       uses: ame-yu/action-delete-latest-release@v2
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-
-    - uses: marvinpinto/action-automatic-releases@latest
+#
+    #- uses: marvinpinto/action-automatic-releases@latest
+    #  with:
+    #    repo_token: ${{ secrets.GITHUB_TOKEN }}
+    #    automatic_release_tag: "latest"
+    #    prerelease: false
+    #    title: "OsqueryGetData"
+    #    files: Get_Data/*
+#
+    - name: Release
+      uses: softprops/action-gh-release@v1
       with:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
-        automatic_release_tag: "latest"
-        prerelease: false
-        title: "OsqueryGetData"
         files: Get_Data/*
-
+        name: v0.1
+        tag_name: "latest"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
