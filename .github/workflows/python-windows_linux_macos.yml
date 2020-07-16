@@ -48,3 +48,11 @@ jobs:
     - name: Run Python Script
       run: |
         python Generate_Osquery_Data.py 1
+      
+    - uses: actions/download-artifact@v2
+      with:
+        path: ./Get_Data/Data
+    
+    - name: Display structure of downloaded files
+      run: ls -R
+      working-directory: ./Get_Data/Data
