@@ -76,6 +76,9 @@ def run_on_wsl_linux(tables,tlocation):
             elif wt in where_tables_l:
                 command = 'osqueryi "SELECT * from ' + wt + ' WHERE path = \'' + osquery_bin + '\'' + limit + ';" --json > ' + flocation + '.json'
                 os.system(command)
+            elif wt in uid_tables:
+                command = 'osqueryi "SELECT * from users join ' + wt + ' using (uid)' + limit + ';" --json > ' + flocation + '.json'
+                os.system(command)
             else:
                 command = 'osqueryi "SELECT * from ' + wt + limit + ';" --json > ' + flocation + '.json'
                 os.system(command)
@@ -100,6 +103,10 @@ def run_osquery_windows(tables,tlocation):
                     os.system(command)
             elif wt in where_tables_w:
                 command = osquery_w_location + ' "SELECT * from ' + wt + ' WHERE path = ' + osquery_bin + limit + ';" --json > ' + flocation + '.json'
+                os.system(command)
+            elif wt in uid_tables:
+                command = osquery_w_location + ' "SELECT * from users join ' + wt + ' using (uid)' + limit + ';" --json > ' + flocation + '.json'
+                print(command)
                 os.system(command)
             else:
                 command = osquery_w_location + ' "SELECT * from ' + wt + limit + ';" --json > ' + flocation + '.json'
@@ -161,6 +168,8 @@ def get_dup_data(df):
 
 osquery_tables = ['osquery_events','osquery_extensions','osquery_flags','osquery_info','osquery_packs','osquery_registry','osquery_schedule']
 curl_tables = ['curl','curl_certificate']
+#tales with UID constraints need to be joined to users table to get all data
+uid_tables = ['authorized_keys','known_hosts','ssh_configs','chrome_extension_content_scripts','opera_extensions','user_ssh_keys','account_policy_data','shell_history','browser_plugins','safari_extensions','chrome_extensions','firefox_addons']
 
 where_tables_l = ['elf_dynamic','elf_info','elf_sections','elf_segments','elf_symbols','file','hash','magic','yara']
 #Tables that are event tables or tables that have not uniform WHERE constraints
@@ -169,6 +178,11 @@ error_tables_l = ['file_events','hardware_events','process_events','process_file
 where_tables_w = ['authenticode','file','hash','ntfs_acl_permissions']
 #Tables that are event tables or tables that have not uniform WHERE constraints
 error_tables_w = ['ntfs_journal_events','powershell_events','windows_events','carves','carbon_black_info','chocolatey_packages']
+
+where_tables_m = ['extended_attributes','mdfind','mdls','package_bom','plist','signature']
+#Tables that are event tables or tables that have not uniform WHERE constraints
+error_tables_m = ['disk_events','user_interaction_events','file_events','hardware_events','process_events','socket_events','user_events','yara_events','carbon_black_info']
+
 
 if platform.system() == "Windows":
     #Windows
