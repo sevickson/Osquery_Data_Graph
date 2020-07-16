@@ -24,11 +24,11 @@ jobs:
     #    title: "OsqueryGetData"
     #    files: Get_Data/*
 #
-    - name: Release
-      uses: softprops/action-gh-release@v1
-      with:
-        files: Get_Data/*
-        name: v0.1
-        tag_name: "latest"
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #- name: Release
+    #  uses: softprops/action-gh-release@v1
+    #  with:
+    #    files: Get_Data/*
+    #    name: v0.1
+    #    tag_name: "latest"
+    #  env:
+    #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
