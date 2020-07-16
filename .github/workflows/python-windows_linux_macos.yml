@@ -49,10 +49,10 @@ jobs:
       run: |
         python Generate_Osquery_Data.py 1
       
-    - uses: actions/download-artifact@v2
+    - uses: actions/upload-artifact@v2
       with:
-        path: ./Get_Data/Data
+        name: csv-output
+        path: |
+          ./Get_Data/Data/
+          ./Get_Data/table_*
     
-    - name: Display structure of downloaded files
-      run: ls -R
-      working-directory: ./Get_Data/Data
