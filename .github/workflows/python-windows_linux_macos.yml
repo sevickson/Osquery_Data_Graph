@@ -51,7 +51,7 @@ jobs:
       
     - uses: actions/upload-artifact@v2
       with:
-        name: csv-output
+        name: csv-output_${{ matrix.os }}_${{ matrix.python-version }}
         path: |
           ./Get_Data/Data/
           ./Get_Data/table_*
