@@ -30,15 +30,15 @@ sudo apt-get install python3
 ```
 ### Get Linux requirements
 ```bash
-python -m pip install --user --upgrade pip
-pip install --user --upgrade -r requirements.txt
+python3 -m pip install --user --upgrade pip
+python3 -m pip install --user --upgrade -r requirements.txt
 ```
 
 ### Run the script on Linux
 Run this script in a terminal.  
 `sudo` is needed to get all possible data from the Osquery tables.
 ```bash
-sudo python Generate_Osquery_Data.py
+sudo -E python3 Generate_Osquery_Data.py
 ```
 
 <img src="https://cdn0.iconfinder.com/data/icons/flat-round-system/512/apple-512.png" alt="macOS" width="40" height="40">
@@ -52,15 +52,15 @@ brew install python3
 ```
 ### Get macOS requirements
 ```bash
-python -m pip install --user --upgrade pip
-pip install --user --upgrade -r requirements.txt
+python3 -m pip install --user --upgrade pip
+python3 -m pip install --user --upgrade -r requirements.txt
 ```
 
 ### Run the script on macOS
 Run this script in a terminal.  
 `sudo` is needed to get all possible data from the Osquery tables.
 ```bash
-sudo python Generate_Osquery_Data.py
+sudo python3 Generate_Osquery_Data.py
 ```
 
 ## CI/CD Test run
