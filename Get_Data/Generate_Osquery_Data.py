@@ -106,7 +106,7 @@ def run_osquery_windows(tables,tlocation):
                 os.system(command)
             elif wt in uid_tables:
                 command = osquery_w_location + ' "SELECT * from users join ' + wt + ' using (uid)' + limit + ';" --json > ' + flocation + '.json'
-                print(command)
+                #print(command)
                 os.system(command)
             else:
                 command = osquery_w_location + ' "SELECT * from ' + wt + limit + ';" --json > ' + flocation + '.json'
@@ -124,7 +124,9 @@ def osquery_data_extract(p):
             data = pd.read_json(path, orient='records', encoding='ANSI')
         else: 
             data = pd.read_json(path, orient='records')
-    
+        if data.empty:
+            print('Osquery table',os_t,'is empty.')
+
         data = data.add_prefix(os_t+'.')
         for i in range(0, data.shape[0]):
             column_data = list(data.columns.values)
@@ -169,7 +171,7 @@ def get_dup_data(df):
 osquery_tables = ['osquery_events','osquery_extensions','osquery_flags','osquery_info','osquery_packs','osquery_registry','osquery_schedule']
 curl_tables = ['curl','curl_certificate']
 #tales with UID constraints need to be joined to users table to get all data
-uid_tables = ['authorized_keys','known_hosts','ssh_configs','chrome_extension_content_scripts','opera_extensions','user_ssh_keys','account_policy_data','shell_history','browser_plugins','safari_extensions','chrome_extensions','firefox_addons']
+uid_tables = ['authorized_keys','known_hosts','ssh_configs','chrome_extension_content_scripts','opera_extensions','user_ssh_keys','account_policy_data','shell_history','browser_plugins','safari_extensions','chrome_extensions','firefox_addons','atom_packages','preferences','crashes']
 
 where_tables_l = ['elf_dynamic','elf_info','elf_sections','elf_segments','elf_symbols','file','hash','magic','yara']
 #Tables that are event tables or tables that have not uniform WHERE constraints
