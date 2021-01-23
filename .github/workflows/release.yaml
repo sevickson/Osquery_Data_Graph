@@ -1,9 +1,9 @@
-#name: DeployCI
+name: Deploy Release
 #https://medium.com/@Keithweaver_/zip-code-base-with-github-actions-for-releases-aca66f530dae
-#on:
-#  push:
-#    branches:
-#      - master
+on:
+  push:
+    branches:
+      - master
   
 #jobs:
 #  build:
