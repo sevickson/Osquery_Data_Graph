@@ -11,15 +11,20 @@ This work is based on my prior work on Osquery Tables:
 - [Blog](https://medium.com/@sevickson/untangling-the-osquery-tables-web-using-jupyter-notebooks-7c979c03f42d)
 
 This repository is divided as follows:
-- [Generate Osquery Data](./Jupyter NBs/1_Get_Osquery_Data.ipynb)
-- [Create Graph Osquery Graphistry](./Jupyter NBs/3_Graph_Osquery_Data.ipynb)
+- [Generate Osquery Data](./1_Get_Data/Generate_Osquery_Data.py)
+- [Merge Osquery Data](./Jupyter_NBs/2_Merge_Osquery_Data.ipynb)
+- [Create Graph Osquery Graphistry](./Jupyter_NBs/3_Graph_Osquery_Data.ipynb)
 - [REQ](REQ)
   - Requirements folder
 
-This repository is based on blog ...
-The graphs are based on Osquery data for Windows and Linux.
+This repository is based on [Untangling the Osquery❓ tables 🕸 using Data📜 | Part 2](https://sevickson.medium.com/untangling-the-osquery-tables-using-data-part-2-9579f997676d) blog.  
+The graphs are based on Osquery data for Windows, Linux and MacOS.
 
-To set the secrets, copy `.env_template` and rename to `.env` and set your secrets there.
+To show the full potential of the graphs I created a dashboard that is hosted on Streamlit.
+- [Dashboard](https://share.streamlit.io/sevickson/osquerygraphs_dashboard/main/osquerygraphs.py)
+- [Repository Dashboard](https://github.com/sevickson/osquerygraphs_dashboard)
+
+To set the graphistry account details to be able to create the graphs, copy `.env_template` and rename to `.env` and set your secrets there.
 
 ------------------------
 
