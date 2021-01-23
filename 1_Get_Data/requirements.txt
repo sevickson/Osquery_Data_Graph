@@ -1,0 +1,4 @@
+pandas
+numpy #==1.19.3 #version needed to workaround https://tinyurl.com/y3dm3h86 (Windows)
+requests
+pathlib

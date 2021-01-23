@@ -1,4 +1,4 @@
-# gitignore for Jupyter Notebooks
+# gitignore for Jupyter Notebooks checkpoints
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
 
@@ -10,5 +10,10 @@
 .env
 
 # gitignore Get_Data output
-Get_Data/Data
-Get_Data/table_data_*
+1_Get_Data/Data*
+1_Get_Data/table_data_*
+Jupyter_NBs/table_data_*
+Data/Raw*
+
+#gitignore presentation material
+Presentation Material/*

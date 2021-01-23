@@ -26,12 +26,12 @@ python Generate_Osquery_Data.py
 Python >= 3.6 is needed.  
 If python3 is not already installed, please run following command.
 ```bash
-sudo apt-get install python3
+sudo apt-get install python3 python3-pip
 ```
 ### Get Linux requirements
 ```bash
 python3 -m pip install --user --upgrade pip
-python3 -m pip install --user --upgrade -r requirements.txt
+more
 ```
 
 ### Run the script on Linux
@@ -54,6 +54,12 @@ brew install python3
 ```bash
 python3 -m pip install --user --upgrade pip
 python3 -m pip install --user --upgrade -r requirements.txt
+```
+### Install Osquery 
+Use the commands below to install the latest version of Osquery, if not already installed.
+```bash
+brew update
+brew install --cask osquery
 ```
 
 ### Run the script on macOS
