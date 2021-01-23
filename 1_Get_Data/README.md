@@ -55,7 +55,7 @@ brew install python3
 python3 -m pip install --user --upgrade pip
 python3 -m pip install --user --upgrade -r requirements.txt
 ```
-### Install Osquery 
+### Install Osquery
 Use the commands below to install the latest version of Osquery, if not already installed.
 ```bash
 brew update
