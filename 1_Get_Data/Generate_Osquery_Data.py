@@ -51,7 +51,7 @@ def install_osquery_windows():#win_osq):
     if os.path.isfile('C:\\Program Files\\osquery\\osqueryi.exe'):
         print("Osquery already installed")
     else:
-        version = "4.5.1"
+        version = "4.6.0"
         url = f'https://pkg.osquery.io/windows/osquery-{version}.msi'
         #First find name of file to be used for installing
         if url.find('/'):
@@ -275,6 +275,10 @@ if platform.system() == "Windows":
     pw = pathlib.Path(twlocation)
     csvlocation = location + "\\Data"
     pcsv = pathlib.Path(csvlocation)
+
+    #  Install Osquery on Windows
+    install_osquery_windows()
+
     osq_v = subprocess.run(['c:\Program Files\osquery\osqueryi.exe','--version'], stdout=subprocess.PIPE).stdout.decode('utf-8')
     osq_v = osq_v.split(None,2)[2].strip() #osq_v[-7:]
     hostn = subprocess.run(['hostname'], stdout=subprocess.PIPE).stdout.decode('utf-8').strip()
@@ -286,9 +290,6 @@ if platform.system() == "Windows":
     #Create folders
     create_folder(pw,twlocation)
     create_folder(pcsv,csvlocation)
-
-    #  Install Osquery on Windows
-    install_osquery_windows()
 
     #  Get Osquery data Windows - JSON output
     # **Consider running this part of the Jupyter Notebook once as Administrator to get data from all the tables, if not admin results from tables like `bitlocker_info` will be empty**    
