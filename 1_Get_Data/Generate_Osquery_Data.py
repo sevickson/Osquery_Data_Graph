@@ -371,7 +371,7 @@ elif platform.system() == "Darwin":
     print(platform.system())
     location = os.getcwd()
     #Install Osquery, now commented because brew does not want sudo used, so manually install it for now.
-    #install_osquery_wsl_linux()
+    install_osquery_wsl_linux()
     tllocation = location + "/table_data_mac"
     pl = pathlib.Path(tllocation)
     csvlocation = location + "/Data"
