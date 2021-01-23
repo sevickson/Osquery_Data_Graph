@@ -1,20 +1,20 @@
-name: DeployCI
+#name: DeployCI
 #https://medium.com/@Keithweaver_/zip-code-base-with-github-actions-for-releases-aca66f530dae
-on:
-  push:
-    branches:
-      - master
+#on:
+#  push:
+#    branches:
+#      - master
   
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
+#jobs:
+#  build:
+#    runs-on: ubuntu-latest
+#    steps:
+#    - uses: actions/checkout@v2
 
-    - name: Delete
-      uses: ame-yu/action-delete-latest-release@v2
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+#    - name: Delete
+#      uses: ame-yu/action-delete-latest-release@v2
+#      with:
+#        github_token: ${{ secrets.GITHUB_TOKEN }}
 #
     #- uses: marvinpinto/action-automatic-releases@latest
     #  with:
